@@ -27,22 +27,11 @@ public class ProductController {
     public List<Product> newProduct(@RequestBody @Valid Product product) {
         return myProduct.addProduct(product);
     }
-   /* @PutMapping("/{id}")
-    public ResponseEntity<List> updateProduct(@PathVariable int id, @RequestBody Product product)
+
+    @DeleteMapping("/delete/{id}")
+    public List<Product> deleteProduct(@PathVariable int id)
     {
-        for(int i=0; i < products.size(); i++)
-        {
-            if(products.get(i).getId() == id)
-            {
-                products.set(i, product);
-            }
-        }
-        return ResponseEntity.ok(products);
-    }*/
-    @DeleteMapping("/{id}")
-    public List<Product> deleteProduct(@PathVariable int id, @RequestBody Product product)
-    {
-        return myProduct.deleteProduct(product);
+        return myProduct.deleteProduct(id);
     }
 
 }

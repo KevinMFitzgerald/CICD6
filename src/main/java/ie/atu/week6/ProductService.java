@@ -17,8 +17,14 @@ public class ProductService {
         myList.add(product);
         return myList;
     }
-    public List<Product> deleteProduct(Product product) {
-        myList.remove(product);
+    public List<Product> deleteProduct(int id) {
+        for(int i=0; i < myList.size(); i++)
+        {
+            if(myList.get(i).getId() == id)
+            {
+                myList.remove(i);
+            }
+        }
         return myList;
     }
 }
