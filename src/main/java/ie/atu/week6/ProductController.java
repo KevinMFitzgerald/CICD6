@@ -1,14 +1,10 @@
 package ie.atu.week6;
 
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -27,7 +23,10 @@ public class ProductController {
     public List<Product> newProduct(@RequestBody @Valid Product product) {
         return myProduct.addProduct(product);
     }
-
+    @PutMapping("/updateProduct/{id}")
+    public List<Product> updateProduct(@RequestBody @Valid Product product, @PathVariable int id) {
+        return myProduct.putProduct(product, id);
+    }
     @DeleteMapping("/delete/{id}")
     public List<Product> deleteProduct(@PathVariable int id)
     {
